@@ -1,2 +1,2 @@
-# Javascript_1er_Trimestre
-Ejercicios Javascript
+# Javascript primer trimestre
+## Ejercicios del primer trimestre en 'Desarrollo web en entorno cliente'
