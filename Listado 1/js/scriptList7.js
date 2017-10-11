@@ -11,8 +11,11 @@
 */
 
 /**
-* Count how many digits have our number
-*/
+ * Counts the number of digit.
+ *
+ * @param      {string}  number  The number
+ * @return     {string}  Number of digit.
+ */
 function countDigit(number){
 	let count = number.length;
 	if(number.indexOf('.')>=0){ //ignore thousands point
@@ -24,8 +27,11 @@ function countDigit(number){
 	return count;
 }
 /**
-* Reverse the number
-*/
+ * { function_description }
+ *
+ * @param      {number}    number  The number
+ * @return     {reverse number} 
+ */
 function reverseNumber(number){
 	let reverse = number.split('').reverse().join('');
 	return reverse;

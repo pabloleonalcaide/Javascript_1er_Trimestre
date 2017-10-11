@@ -17,18 +17,14 @@ let opcion;
 * Determine if the choosen number is the correct one
 */
 function isWinner(myNumber, correctNumber){
-	if (myNumber == correctNumber)
-		return true;
-	return false;
+	return (myNumber == correctNumber)
 }
 
 /**
 * Determine if the choosen number is higher
 */
 function isHigher(myNumber, correctNumber){
-	if (myNumber > correctNumber)
-		return true;
-	return false;
+	return (myNumber > correctNumber)
 }
 /**
 * Determine if user wish continue
@@ -47,11 +43,14 @@ function wishContinue(){
 */
 function playGame(){
 	do{
-	aleatorio =  Math.floor((Math.random() * 100) + 1);
+		alert("Adivinalo: a ver si adivinas que número estoy pensando");-
+		aleatorio =  Math.floor((Math.random() * 100) + 1);
 	//console.log(aleatorio);  <-- Para que me muestre el valor en consola, trampas para probar el juego
 	do{
-		opcion = prompt("A ver si adivinas en qué número estoy pensando");
-
+		
+		do{
+			opcion = prompt("Introduce un número");
+		}while(isNaN(opcion) || opcion % 1 !== 0)
 		if(isHigher(opcion,aleatorio))
 			alert("el número que estoy pensando es menor!");
 		else if(isHigher(aleatorio,opcion))

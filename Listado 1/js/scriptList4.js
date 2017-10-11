@@ -33,4 +33,7 @@ function showPrime(bool){
 }
 //*****************
 number = prompt("introduce un número, te diré si es primo");
-showPrime(isPrime(number));
+if(!isNaN(number))
+	showPrime(isPrime(number));
+else
+	alert("has introducido caracteres no numéricos");

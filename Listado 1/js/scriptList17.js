@@ -13,6 +13,7 @@
 * 123456789
 * 1234567890
 */
+{
     let row="";
     for (let i = 1; i <= 9; i++) {
         for (let j = 1; j <= i; j++) {
@@ -21,3 +22,4 @@
       	console.log(row);
         row="";
     } 
+}

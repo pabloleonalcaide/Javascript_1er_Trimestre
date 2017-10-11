@@ -8,24 +8,26 @@ primos existen entre el 1 y dicho número.
 * @version 1.0
 */
 
-/*
-* check if the number is prime
-*/
+/**
+ * Determines if prime.
+ * @param      {number}   number  The number
+ * @return     {boolean}  True if prime, False otherwise.
+ */
 function isPrime(number){
 	for (let i = 2; i < number; i++) {
 
 	    if (number % i === 0) {
     	  return false;
     	}
-
   	}
-
   	return number !== 1;
 }
 
-/*
-* Count how many numbers are prime
-*/
+/**
+ * Counts the number of prime.
+ * @param      {number}  number  The number
+ * @return     {number}  Number of prime.
+ */
 function countPrime(number){
 	let countNumbers = 0;
 	for(let i=1; i<=number; i++){
@@ -34,7 +36,11 @@ function countPrime(number){
 	}
 	return countNumbers;
 }
-
+/**
+ * Shows the primes.
+ *
+ * @param      {(number|string)}  number  The number
+ */
 function showPrimes(number){
 	if(number >0)
 		alert("hay "+number+ " números primos");

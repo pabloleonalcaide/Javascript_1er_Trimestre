@@ -6,20 +6,28 @@
 * @author Pablo Leon Alcaide
 * @version 1.01
 */
-let num,sum=0, cont =0;
+{
+	let num,sum=0, cont =0;
 
-/** calculate the average of many numbers */
-function calculateAverage(sum,cont){
+	/**
+	 * Calculates the average.
+	 *
+	 * @param      {number}  sum     The sum
+	 * @param      {number}  cont    The container
+	 * @return     {number}  The average.
+	 */
+	function calculateAverage(sum,cont){
 
-	return parseInt(sum)/parseInt(cont);
-}
-
-do{
-	num = parseInt(prompt("introduce un número positivo, pulsa 0 para salir"));
-	if(num>0){
-		sum =sum += num; 
-		cont++;
+		return parseInt(sum)/parseInt(cont);
 	}
-}while(num!=0);
 
-alert("genial, la media de esos números fue: "+calculateAverage(sum,cont)+" hemos ignorado los valores negativos");
+	do{
+		num = parseInt(prompt("introduce un número positivo, pulsa 0 para salir"));
+		if(num>0){
+			sum =sum += num; 
+			cont++;
+		}
+	}while(num!=0);
+
+	alert("genial, la media de esos números fue: "+calculateAverage(sum,cont)+" hemos ignorado los valores negativos");
+}

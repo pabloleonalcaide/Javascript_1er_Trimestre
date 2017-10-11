@@ -4,7 +4,11 @@
 * MultiplicaImpares que multiplique los 20 primeros números impares y muestre el resultado en pantalla.
 */
 
-/** Multiply the first 20 odd numbers */
+/**
+ * Multiply first 20 odds numbers
+ *
+ * @return     {number}  { result }
+ */
 function multiplyOdds(){
 	let result = 1;
 	let count=0;

@@ -6,15 +6,16 @@
 * @author Pablo Leon Alcaide
 * @version 1.01
 */
-
+{
 let cont = 0;
-do{
-	num = parseInt(prompt("unos y ceros, pulsa 2 para salir"));
-	if(num === 0){		
-		cont++;
-	}
-	if(num!= 0 && num!=1 && num!=2)
-		alert("solo unos y ceros, por favor");
-}while(num!=2)
+	do{
+		num = parseInt(prompt("unos y ceros, pulsa 2 para salir"));
+		if(num === 0){		
+			cont++;
+		}
+		if(num!= 0 && num!=1 && num!=2)
+			alert("solo unos y ceros, por favor");
+	}while(num!=2)
 
-alert("había "+cont+" ceros");
+	alert("había "+cont+" ceros");
+}

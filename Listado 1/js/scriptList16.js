@@ -13,33 +13,16 @@
 * 999999999
 * 0000000000
 */
-/*let row;
-for(let i=1; i<10; i++){
-	row="";
-	for(let j=0; j<i;j++){
-		
-		row+=i;
-	}
-	console.log(row);
-}
-console.log(0000000000);
-*/
 {
-    let fila;
-    let filaCero;
-
+    let row;
     for(let i=1; i<10; i++){
-        fila="";
-        for(let j=0; j<i;j++){
-            fila+=i;
-        }
-        console.log(fila);
+    	row="";
+    	for(let j=0; j<i;j++){
+    		
+    		row+=i;
+    	}
+    	console.log(row);
     }
-    filaCero="";
-    for(let k=0; k<10; k++){
-        
-        filaCero+=0;
-    }
-    console.log(filaCero);
+    console.log(0000000000);
 
 }

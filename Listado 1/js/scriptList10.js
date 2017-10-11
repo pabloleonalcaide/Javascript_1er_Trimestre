@@ -4,26 +4,36 @@
 * @author Pablo Leon Alcaide <pabloleonpsico@gmail.com>
 * @version 1.0 
 */
+{
+	let ceroANueve=[ "cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve",];
+    
+    let diezAVeintiNueve=["diez","once","doce","trece","catorce","quince","diceiseis","dicisiete","dieciocho",
+    "diecinueve","veinte","veintiuno","veintidos","veintitres","veinticuatro","veinticinco","veintiseis","veintisiete",
+    "veintiocho","veintinueve",];
+    
+	let decenas=["","","","treinta","cuarenta","cincuenta","sesenta","setenta","ochenta","noventa"];
+	let number;
+	/**
+	 * Returns the text of a number.
+	 * @param      {<type>}  number.
+	 * @return     {Array}   { text of the number }
+	 */
+	function returnText(num){ 	
+		if(num<10){
+			return ceroANueve[num];
+		}else if((num >10) && (num <30)){
+			return diezAVeintiNueve[(num-10)]
+		}else{
+			let cadena =""
+			let array = num.split('');
+			cadena= decenas[array[0]] +" y "+ceroANueve[array[1]]
+			return cadena;
+		}
+	                             	
+	}
 
-/** Return a String with the name of a number*/
-function returnText(number){
-
-	let arrayText =[ "cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez","once","doce","trece","catorce",
-	"quince","diceiseis","dicisiete","dieciocho","diecinueve","veinte","veintiuno","veintidos","veintitres","veinticuatro",
-	"veinticinco","veintiseis","veintisiete","veintiocho","veintinueve","treinta","treinta y uno","treinta y dos","treinta y tres",
-	"treinta y cuatro","treinta y cinco","treinta y seis","treinta y siete","treinta y ocho","treinta y nueve","cuarenta"
-	,"cuarenta y uno","cuarenta y dos","cuarenta y tres","cuarenta y cuatro","cuarenta y cinco","cuarenta y seis","cuarenta y siete",
-	"cuarenta y ocho","cuarenta y nueve", "cincuenta" ,"cincuenta y uno","cincuenta y dos","cincuenta y tres","cincuenta y cuatro","cincuenta y cinco",
-	"cincuenta y seis","cincuenta y siete", "cincuenta y ocho","cincuenta y nueve", "sesenta" ,"sesenta y uno","sesenta y dos","sesenta y tres",
-	"sesenta y cuatro","sesenta y cinco","sesenta y seis","sesenta y siete","sesenta y ocho","sesenta y nueve","setenta" ,"setenta y uno","setenta y dos",
-	"setenta y tres","setenta y cuatro","setenta y cinco","setenta y seis","setenta y siete","setenta y ocho","setenta y nueve", "ochenta" ,
-	"ochenta y uno","ochenta y dos","ochenta y tres","ochenta y cuatro","ochenta y cinco","ochenta y seis","ochenta y siete","ochenta y ocho",
-	"ochenta y nueve","noventa" ,"noventa y uno","noventa y dos","noventa y tres","noventa y cuatro","noventa y cinco","noventa y seis",
-	"noventa y siete","noventa y ocho","noventa y nueve"];
-
-	return arrayText[number];
+	do{
+	number = prompt("introduce un numerico");
+}while(number<0 && !isNan(number));
+	console.log("el numerico introducido es: "+ returnText(number));
 }
-
-let number = prompt("introduce un numerico");
-
-alert("el numerico introducido es: "+ returnText(number));

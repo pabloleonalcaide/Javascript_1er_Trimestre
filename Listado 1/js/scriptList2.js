@@ -7,10 +7,11 @@
 * @version 1.0
 *
 */
-
-let cadena = "números: ";
-//el decremento o incremento en js se indica con -=  ó   +=
-for (let i =100; i >= 0; i-=7) {
-	cadena+=(" "+i);
+{
+	let cadena = "números: ";
+	//el decremento o incremento en js se indica con -=  ó   +=
+	for (let i =100; i >= 0; i-=7) {
+		cadena+=(" "+i);
+	}
+	alert(cadena);
 }
-alert(cadena);

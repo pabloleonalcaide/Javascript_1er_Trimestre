@@ -40,11 +40,20 @@ function nextSecond(seconds,minutes,hour){
         }
 
 let second, minute, hour;
+do{
 second = prompt("por favor, introduce los segundos");
+}while(isNaN(second));
 if(checkMinuteSecond(second)){
-	minute= prompt("por favor, introduce los minutos");
+	do{
+		minute= prompt("por favor, introduce los minutos");
+	}while(isNaN(minute));
+	
 	if(checkMinuteSecond(minute)){
-		hour = prompt("por favor, introduce la hora");
+		  
+	  do {
+	  	hour = prompt("por favor, introduce la hora");
+	  } while (isNaN(hour));
+	
 		if(checkHour(hour)){
 
 			alert("los datos son correctos. El siguiente segundo será en: "+nextSecond(second,minute,hour));
