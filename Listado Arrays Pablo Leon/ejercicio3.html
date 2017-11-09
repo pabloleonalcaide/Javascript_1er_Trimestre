@@ -1,0 +1,25 @@
+<!-- Indica la función que comprueba si un objeto es o no un Array. Demuestra su uso mediante un ejemplo.
+Pablo Leon Alcaide
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ejercicio 3 - Pablo Leon Alcaide</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<h1> Indica la función que comprueba si un objeto es o no un Array. Demuestra su uso mediante un ejemplo. </h1>
+<h2>La función .isArray() nos devuelve true o false indicando si un objeto es un array o no</h2>
+<p> Ejemplo </p>
+<script>
+	let heroes = ['Hiro Nakamura','Peter Petrelli','Sylar','Claire Bennet'];
+	let heroe = 'Hiro Nakamura';
+	document.write("let heroes = ['Hiro Nakamura','Peter Petrelli','Sylar','Claire Bennet'];<br>");
+	document.write('Es heroes un array?: '+Array.isArray(heroes));
+	document.write("<br>let heroe = 'Hiro Nakamura';<br>");
+	document.write('Es heroe un array?: '+Array.isArray(heroe));
+</script>
+</body>
+</html>
