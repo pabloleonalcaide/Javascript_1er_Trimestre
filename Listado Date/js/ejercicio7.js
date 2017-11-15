@@ -9,25 +9,22 @@
 let esBisiesto = function(anio, mes, dia, hora, min, seg, miliseg) {
 try {
 	if (isNaN(anio) || anio < 1) {
-		throw "El año no es válido";
+		throw {message: "El año no es válido"};
 	}
 	if (isNaN(mes) || mes < 0) {
-		throw "El mes no es válido";
+		throw {message: "El mes no es válido"};
 	}
 	if (isNaN(dia) || dia < 1) {
-		throw "El dáa no es válido";
+		throw {message: "El día no es válido"};
 	}
 	//Si no hay error
 	let fecha = new Date(anio, (mes-1), dia, hora, min, seg, miliseg);
 	let annio= fecha.getFullYear();
-	if ((annio % 4 == 0) && (annio % 100 != 0) || (annio % 400 == 0)){
-		return "El año bisiesto";
-	}else{
-		return "El año no es bisiesto";
-	}
+	return ((annio % 4 == 0) && (annio % 100 != 0) || (annio % 400 == 0));
+		
 	//Si saltó una excepción
-}catch (error) {
-	return error;
+}catch (e) {
+	return e.message;
 }
 }
 document.write(esBisiesto(2017,11,3,12,30,14,0))
