@@ -30,7 +30,7 @@ let limpiarCadena = function(dni){
 	return dni2;
 }
 /**
- * Comprueba si el dni introducido es válido
+ * Comprueba si el dni introducido es válido 
  *
  */
 var comprobarDNI = function(dni){
