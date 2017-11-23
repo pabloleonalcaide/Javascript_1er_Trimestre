@@ -13,7 +13,7 @@
 	margin: 0 auto;
 	box-shadow: 1px 1px 1px white;
 }
-.button{
+button{
 	display:inline-block;
 	width: 40px;
 	height:40px;
