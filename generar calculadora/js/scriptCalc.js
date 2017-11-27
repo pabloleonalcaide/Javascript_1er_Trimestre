@@ -12,7 +12,7 @@
         operador: "",
         hasOperador: false,
         buttons : [
-            "CE", "C", "%", "+", "7", "8", "9", "-", "4", "5", "6", "*", "1", "2", "3", "/", "0" ,"+/-", ",", "=" ],
+            "CE", "C", "%", "+", "7", "8", "9", "-", "4", "5", "6", "*", "1", "2", "3", "/", "0" ,"+/-", ".", "=" ],
         form : "",
         result : "0",
 
@@ -63,7 +63,7 @@
                     document.getElementById(calculadora.buttons[i]).onclick = calculadora.clearLast;break;
                     case 'CE':
                     document.getElementById(calculadora.buttons[i]).onclick = calculadora.clearAll;break;
-                    case ',':
+                    case '.':
                     document.getElementById(calculadora.buttons[i]).onclick = calculadora.setDecimal;break;
                     case '=': 
                     document.getElementById(calculadora.buttons[i]).onclick = calculadora.doOperation; break;
@@ -87,6 +87,9 @@
                 }
             //si lo que ha introducido es una operación                
             }else if (this.value ==='+' || this.value === '-' ||this.value ==='*' || this.value === '/' ){
+                if(calculadora.hasOperador){
+                    calculadora.doOperation();
+                }
                 calculadora.operador=this.value;
                 calculadora.hasOperador = true;
                 
@@ -119,12 +122,33 @@
         },
         
         setDecimal: function() {
-            if(calculadora.textBox.value.indexOf(',') === -1) {
-                calculadora.textBox.value +=  this.value;                
+            if(calculadora.textBox.value.indexOf('.') === -1) {
+                if (calculadora.operando2 === 0){
+                    calculadora.operando1 += '.';
+                    calculadora.textBox.value = calculadora.operando1;
+                }else{
+                    calculadora.operando2 += '.';
+                    calculadora.textBox.value = calculadora.operando2;
+                }
             }
         },
         changeSimbol: function(){
-                //
+                if(calculadora.operando2 === 0){
+                    if(Math.sign(calculadora.operando1) === 1){    //Math.sign(x) devuelve 1 si el valor es positivo y -1 si el valor es negativo
+                        calculadora.operando1 = -Math.abs(calculadora.operando1); // -Math.abs(x) devuelve el valor negativo de un número
+                    }else{
+                        calculadora.operando1 = Math.abs(calculadora.operando1);
+                    }
+                    calculadora.textBox.value = calculadora.operando1;
+                }else{
+                    if(Math.sign(calculadora.operando2) === 1){
+                        calculadora.operando2 = -Math.abs(calculadora.operando2); 
+                    }else{
+                        calculadora.operando2 = Math.abs(calculadora.operando2);
+                    }
+                    calculadora.textBox.value = calculadora.operando2;
+                }
+
         },
         doOperation: function(){
             switch(calculadora.operador){
@@ -143,9 +167,12 @@
         },
 
         percent: function(){
-            if(calculadora.operando2 = 0){
-                        calculadora.textBox.value = (calculadora.operando1 /100);
-                        calculadora.operando1 = 0;
+            if(calculadora.operando2 === 0){
+                    calculadora.textBox.value = (calculadora.operando1 /100);
+                    calculadora.operando1 = calculadora.textBox.value;
+            }else{
+                    calculadora.textBox.value = (calculadora.operando2 /100);
+                    calculadora.operando2 = calculadora.textBox.value;
             }
         },
         //comprobamos si es una operación
