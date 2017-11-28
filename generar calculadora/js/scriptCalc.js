@@ -65,25 +65,28 @@
             for (let i = 0; i < calculadora.buttons.length; i++) {           
                 switch(calculadora.buttons[i]) {
                     case 'C':
-                    document.getElementById(calculadora.buttons[i]).onclick = calculadora.clearLast;break;
+                   		 document.getElementById(calculadora.buttons[i]).onclick = calculadora.clearLast;break;
                     case 'CE':
-                    document.getElementById(calculadora.buttons[i]).onclick = calculadora.clearAll;break;
+                   		 document.getElementById(calculadora.buttons[i]).onclick = calculadora.clearAll;break;
                     case '.':
-                    document.getElementById(calculadora.buttons[i]).onclick = calculadora.setDecimal;break;
+                   		 document.getElementById(calculadora.buttons[i]).onclick = calculadora.setDecimal;break;
                     case '=': 
-                    document.getElementById(calculadora.buttons[i]).onclick = calculadora.doOperation; break;
+                    	document.getElementById(calculadora.buttons[i]).onclick = calculadora.doOperation;break;
+                 		
                     case '%': 
-                    document.getElementById(calculadora.buttons[i]).onclick = calculadora.percent; break;
+                    	document.getElementById(calculadora.buttons[i]).onclick = calculadora.percent; break;
                     case '+/-':
-                    document.getElementById(calculadora.buttons[i]).onclick = calculadora.changeSimbol; break;
+                    	document.getElementById(calculadora.buttons[i]).onclick = calculadora.changeSimbol; break;
                     default:
-                    document.getElementById(calculadora.buttons[i]).onclick = calculadora.addNumber; break; 
+                    	document.getElementById(calculadora.buttons[i]).onclick = calculadora.addNumber; break; 
                 }  
             }
         },
         addNumber : function() {
+        
             //Si había un 0 en pantalla
             if (calculadora.textBox.value === "0"){
+
                 if(this.value ==='+' || this.value === '-' ||this.value ==='*' || this.value === '/' ){
                 }   
                 else if(this.value != 0){    //no permitimos que ponga varios ceros seguidos al inicio
@@ -156,7 +159,7 @@
                 }
 
         },
-        doOperation: function(){
+        doOperation: function(igual){
             switch(calculadora.operador){
                 case '+': 
                     calculadora.textBox.value = (parseFloat(calculadora.operando1) + parseFloat(calculadora.operando2)); break;
@@ -174,6 +177,8 @@
             calculadora.operando1 = calculadora.textBox.value;
             calculadora.operando2 = 0;
             calculadora.operador = "";
+            if(arguments.length)
+            	calculadora.operando1 = "";
         },
 
         percent: function(){
