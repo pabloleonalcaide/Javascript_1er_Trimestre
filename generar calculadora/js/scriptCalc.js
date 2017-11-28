@@ -3,6 +3,10 @@
  * @author Pablo Leon
  * @version 1.1
  */
+
+/**
+ * Class calculadora
+ */
 {
     let calculadora = {
         textBox: "0",
@@ -49,13 +53,14 @@
             
             calculadora.textBox = document.getElementById("result");   
         },
-        
+        /** Paint all the elements  */
         paintCalc: function() {
             calculadora.paintStructure();
             calculadora.paintScreen();
             calculadora.paintButtons();
         },
         
+        /**   init an event when user click on a button  */
         init: function() {
             for (let i = 0; i < calculadora.buttons.length; i++) {           
                 switch(calculadora.buttons[i]) {
@@ -110,13 +115,14 @@
             }
         },
         
-        //Despejar todo
+        /**  remove the last number */
         clearLast : function() {
             calculadora.textBox.value = calculadora.textBox.value.substring(0, calculadora.textBox.value.length-1)
             if(calculadora.textBox.value == "")
                 calculadora.textBox.value = "0";
         },
         
+        /** remove all the numbers */
         clearAll : function() {
             calculadora.textBox.value = "0";
         },
@@ -159,6 +165,10 @@
                 case '*': 
                     calculadora.textBox.value = (parseFloat(calculadora.operando1) * parseFloat(calculadora.operando2)); break;
                 case '/': 
+                	/* capamos la posibilidad de que divida entre 0 haciendo que divida el valor entre 1 */
+                	if(calculadora.operando2 === 0){
+                		calculadora.operando2 = 1;
+                	}
                     calculadora.textBox.value = (parseFloat(calculadora.operando1) / parseFloat(calculadora.operando2)); break;
             }
             calculadora.operando1 = calculadora.textBox.value;
