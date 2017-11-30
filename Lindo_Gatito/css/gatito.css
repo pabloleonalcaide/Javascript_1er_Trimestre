@@ -1,0 +1,34 @@
+/** Pablo Leon Alcaide*/
+body{
+	background-image: url('fondo.jpg');
+}
+fieldset{
+	background-color: #f4f4f4;
+	width: 40%;
+	margin:0 auto;
+}
+legend{
+
+}
+
+/* WINDOW CHILD*/
+#container{
+	background-color: #f4f4f4;
+	border:3px dashed #222;
+	width:50%;
+	margin:0 auto;
+	}
+
+#image{
+	width:100%;
+	height:210px;
+}
+.actions{
+	
+}
+.black{
+	background-color: black;
+}
+.hidden{
+	display:none;
+}
