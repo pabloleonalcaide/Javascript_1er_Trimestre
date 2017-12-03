@@ -26,3 +26,6 @@ form > fieldset>header{
 form >fieldset >input, select{
 	color: #222;
 }
+span{
+	color: #ff0000;
+}

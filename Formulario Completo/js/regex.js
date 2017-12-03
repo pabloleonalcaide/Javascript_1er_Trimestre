@@ -7,7 +7,7 @@
 	/** Check if an input text is empty */
 	let isEmpty = function(inputfield){
 		if(inputfield.value==null || inputfield.value=='')
-			return true;
+			throw 'El campo está vacío';
 		return false;
 	}
 	/** check the checkbox */
@@ -41,17 +41,22 @@
 		return pattern.test(inputAccount.value);
 	}
 
+	/** Check if the date format is correct */
 	let checkBirth = function(inputBirth){
 		let d = new Date(inputBirth.value);
 		if(d == "Invalid Date")
 			return false;
 		return true;
 	}
+
+	/** Check if the phone format is correct */
 	let checkPhone = function(inputPhone){
 		let pattern = /^[6789][123456789]{8}/;
 			return pattern.test(inputPhone.value);
 
 	}
+
+	/** Check if the dni is valid */
 	let checkDni = function(inputDni){
 	
 		let pattern= /^\d{8}[A-Za-z]$/;
@@ -73,6 +78,3 @@
 			return false;
 		}
 	}
-
-	
-	

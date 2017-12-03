@@ -56,7 +56,8 @@
 		
 	}
 
-	var locateFirstError = function(){
+	/** Identify the first error in the form */
+	let locateFirstError = function(){
 		let first = null;
 		validateGender();
 		if(spanGender.innerHTML !="")
@@ -84,90 +85,134 @@
 			first = "name";
 		return first;
 	}
-	let validateName =function(){
-		if(isEmpty(inputName)){
-			paintVacio(spanName);
+	/** Validate the Name input */
+	let validateName =function(){  
+	  try {
+	  	if(isEmpty(inputName)){			
 		}else {
 			paintNormal(spanName);
 		}
+	  	} catch (e) {
+		  paintVacio(spanName);
+	  	}
+	  
 	}
+
+	/** Validate the Phone input */
 	let validatePhone = function(){
-		if(isEmpty(inputPhone)){
-			paintVacio(spanPhone);
-		}else{
-			if(checkPhone(inputPhone))
-				paintNormal(spanPhone);
-			else {
-				setVisibleMsj(spanPhone,"Introduce un teléfono válido");	
-			}		
-		}
+		  
+  		try {
+  			if(isEmpty(inputPhone)){
+			}else{
+				if(checkPhone(inputPhone))
+					paintNormal(spanPhone);
+				else {
+					setVisibleMsj(spanPhone,"Introduce un teléfono válido");	
+				}		
+			}
+		  } catch (e) {
+	  	paintVacio(spanPhone);
+  		}
 	}
-	let validateMail = function(){
-			if(isEmpty(inputMail)){
-				paintVacio(spanMail);
-			}else{
-				if(checkMail(inputMail))
-					paintNormal(spanMail);
-				else {
-					setVisibleMsj(spanMail,"Introduce un email válido");	
-				}		
-			}
+	/** Validate the Mail input */
+	let validateMail = function(){	   
+	   try {
+	   	if(isEmpty(inputMail)){
+				}else{
+					if(checkMail(inputMail))
+						paintNormal(spanMail);
+					else {
+						setVisibleMsj(spanMail,"Introduce un email válido");	
+					}		
+				}
+   		} catch (e) {
+			paintVacio(spanMail);
+   }
+   
 		}
-
-	let validateAccount = function(){
-			if(isEmpty(inputAccount)){
-				paintVacio(spanAccount);
-			}else{
-				if(checkAccount(inputAccount))
-					paintNormal(spanAccount);
-				else {
-					setVisibleMsj(spanAccount,"Introduce un número de cuenta válido");	
+	/** Validate the Account input */
+	let validateAccount = function(){   
+	   try {
+	   	if(isEmpty(inputAccount)){
+		}else{
+			if(checkAccount(inputAccount))
+				paintNormal(spanAccount);
+			else {
+				setVisibleMsj(spanAccount,"Introduce un número de cuenta válido");	
 				}		
-			}
+					}
+	   } catch (e) {
+			paintVacio(spanAccount);	   
+	   }
+	   
 		}
+	/** Validate the DNI input*/	
 	let validateDni = function(){
-			if(isEmpty(inputDni)){
-				paintVacio(spanDni);
+			   
+	   try {
+		   	if(isEmpty(inputDni)){
+				}else{
+					if(checkDni(inputDni))
+						paintNormal(spanDni);
+					else {
+						setVisibleMsj(spanDni,"Introduce un dni válido");	
+					}		
+				}
+   		} catch (e) {
+					paintVacio(spanDni);
+   		}
+   
+	}
+
+	/** Validate the Birth input */
+	let validateBirth = function(){
+			  
+		  try {
+		  	if(isEmpty(inputBirth)){
+				}else{
+					if(checkBirth(inputBirth))
+						paintNormal(spanBirth);
+					else {
+						setVisibleMsj(spanBirth,"El formato de fecha no es válido");	
+					}		
+				}	
+	  } catch (e) {
+			paintVacio(spanBirth);
+	  }
+	  
+	}
+
+	/** Validate the URL input */
+	let validateUrl = function(){
+		try{
+			if(isEmpty(inputWeb)){
 			}else{
-				if(checkDni(inputDni))
-					paintNormal(spanDni);
+				if(checkWeb(inputWeb))
+					paintNormal(spanWeb);
 				else {
-					setVisibleMsj(spanDni,"Introduce un dni válido");	
+					setVisibleMsj(spanWeb,"Introduce un formato válido de url");	
 				}		
 			}
+		}catch(e){
+				paintVacio(spanWeb);
+		}		
 	}
-	let validateBirth = function(){
-
-		if(isEmpty(inputBirth)){
-				paintVacio(spanBirth);
-			}else{
-				if(checkBirth(inputBirth))
-					paintNormal(spanBirth);
-				else {
-					setVisibleMsj(spanBirth,"El formato de fecha no es válido");	
-				}		
-			}	
-	}
-	let validateUrl = function(){
-
-		if(isEmpty(inputWeb)){
-			paintVacio(spanWeb);
-		}else{
-			if(checkWeb(inputWeb))
-				paintNormal(spanWeb);
-			else {
-				setVisibleMsj(spanWeb,"Introduce un formato válido de url");	
-			}		
-		}	
-	}
-
+	/** Validate the Gender Select */
 	let validateGender = function(){
-		if(isEmpty(inputGender)){
-			setVisibleMsj(spanGender,"elige uno");
-		}else {
-			paintNormal(spanGender);
-		}
+			 
+		 try {
+	 		if(isEmpty(inputGender)){
+				}else {
+					paintNormal(spanGender);
+				}
+		 }catch(e){
+				setVisibleMsj(spanGender,"elige uno");		 
+		 }
+		 
 	}
+
+
+	// Adding the event listeners 
 	inputName.addEventListener("blur",validateName);
 	inputPhone.addEventListener("blur",validatePhone);
 	inputMail.addEventListener("blur", validateMail);
