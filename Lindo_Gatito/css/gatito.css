@@ -2,6 +2,11 @@
 body{
 	background-image: url('fondo.jpg');
 }
+body > div{
+	width: 40%;
+	margin:0 auto;
+	text-align:center;
+}
 fieldset{
 	background-color: #f4f4f4;
 	width: 40%;
@@ -10,7 +15,9 @@ fieldset{
 legend{
 
 }
-
+span{
+	color:red;
+}
 /* WINDOW CHILD*/
 #container{
 	background-color: #f4f4f4;

@@ -18,7 +18,7 @@ let playCat = function(){
 	if(newCat.isAlive){	
 		newCat.play();
 		actualizarEstado();
-		image.setAttribute('src', './images/jugando.jpg');}
+	}
 	else
 		killCat();
 }
@@ -26,7 +26,6 @@ let playCat = function(){
 let sleepCat = function(){
 	newCat.sleep();
 	actualizarEstado();
-	image.setAttribute('src', './images/dormido.jpg');
 }
 
 let eatCat = function(){
@@ -34,10 +33,25 @@ let eatCat = function(){
 	if(newCat.isAlive){
 		newCat.eat();
 		actualizarEstado();
-		image.setAttribute('src', './images/comiendo.jpg');}
+	}
 	else
 		killCat();
 }
+
+let checkImage = () => {
+	switch(newCat.state){
+		case 'eating' : 	
+			image.setAttribute('src', './images/comiendo.jpg');break;
+		case 'playing': 	
+			image.setAttribute('src', './images/jugando.jpg');break;
+		case 'sleeping' : 
+		default:  
+			image.setAttribute('src', './images/dormido.jpg');break;
+
+	}
+
+}
+
 
 /** Refresca el estado del gato */
 function actualizarEstado(){
@@ -45,6 +59,7 @@ function actualizarEstado(){
 	document.getElementById("race1").value=newCat.race;
 	document.getElementById("weight1").value=newCat.weight;
 	document.getElementById("age1").value=newCat.getAge();
+	checkImage();  
 }
 
 /** R.I.P */

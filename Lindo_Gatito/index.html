@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Pablo Leon - Lindo Gatito</title>
-		<meta name="Description" content="Lindo gatito">
+	<meta name="Description" content="Lindo gatito">
 	<meta name="Author" content="Pablo León Alcaide">
 	<link rel="stylesheet" type="text/css" href="./css/normalize.css"/>
 	<link rel="stylesheet" type="text/css" href="./css/gatito.css">
@@ -14,13 +14,13 @@
 	<fieldset>
 		<legend>Invoca un gato</legend>
 		<label for="name">Nombre</label><br>
-		<input type="text" id="name" placeholder="ej. isidoro" name="name" required><br>
+		<input type="text" id="name" placeholder="ej. isidoro" name="name"><span id="errName"></span><br>
 		<label for="race">Raza</label><br>
-		<input type="text" id="race" placeholder="ej. persa" name="race"><br>
+		<input type="text" id="race" placeholder="ej. persa" name="race"><span id="errRace"></span><br>
 		<label for="year">Año</label><br>
-		<input type="number" id="year" name="year" value=2000 min=2000 max=2016><br>
+		<input type="number" id="year" name="year" value=2000 min=2000 max=2018><span id="errYear"></span><br>
 		<label for="weight">Peso</label><br>
-		<input type="number" id="weight" name="weight" value=7 max=16 min=0><br>
+		<input type="number" id="weight" name="weight" value=7 max=17 min=0><span id="errWeight"></span><br>
 		<input type="submit" name="submit" value="invocar criatura" id="submit">
 		<!-- 
 		Descomentar para habilitar botón 'hora de gatos', es necesario habilitar funcion en script
@@ -29,6 +29,7 @@
 		
 	</fieldset>
 	</form>
+	<div><img src="./images/invoque.png"></div>
 	<noscript>
 		<p>Su navegador tiene deshabilitado JavaScript. Actívalo para navegar correctamente por esta web</p>
 	</noscript>

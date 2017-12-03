@@ -29,6 +29,7 @@ let loadSetting = function (window1){
 	 	let race = document.getElementById("race").value;
 	 	let year = document.getElementById("year").value;
 	 	let weight = document.getElementById("weight").value;
+ 		
  		let cat = new Kitty(name,year,race,weight);
 		window1.newCat = cat;
 
