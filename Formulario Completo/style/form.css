@@ -1,0 +1,28 @@
+form{
+	width: 35%;
+	text-align:right;
+	margin:0 auto;
+	margin-top: 10px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+}
+form > fieldset{
+	background-color: #2700EF;
+	color: #FAB63C;
+
+}
+form > fieldset label{
+	margin-right: 3px;
+	font-weight: bold;
+}
+form > fieldset>header{
+	background-color: #3200CC;
+	color: #FAB63C;
+	padding:10px 0  20px;
+	text-align:center;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+form >fieldset >input, select{
+	color: #222;
+}

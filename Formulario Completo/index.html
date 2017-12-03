@@ -1,0 +1,56 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Formulario Pablo Leon</title>
+	<meta name="Description" content="Lindo gatito">
+	<meta name="Author" content="Pablo León Alcaide">
+	<link rel="stylesheet" href="./style/normalize.css">
+	<link rel="stylesheet" href="./style/form.css">
+</head>
+<body>
+	<form>
+		<fieldset>
+		<legend></legend>
+			<header id="head">Form </header>
+			<label>Name</label>
+			<input type="text" id="name" name="name"><br><span id="errName"></span><br>
+			<label>Phone</label>
+			<input type="number" id="phone" name="phone"><br><span id="errPhone"></span><br>
+			<label>D.N.I</label>
+			<input type="text" id="dni" name="dni" placeholder="00000000H"><br><span id="errDni"></span><br>
+			<label>Birth</label>
+			<input type="text" id="birth" name="birth" placeholder="mm,dd,yyyy"><br><span id="errBirth"></span><br>
+			<label>Mail</label>
+			<input type="text" id="mail" name="mail" placeholder="user@domain.com"><br><span id="errMail"></span><br>
+			<label>Website</label>
+			<input type="text" id="web" placeholder="www.website.com"><br><span id="errWeb"></span><br>
+			<label>Current Account</label>
+			<input type="text" id="account" placeholder="xxxx-xxxx-xx-xxxxxxxx"><br><span id="errAccount"></span><br>
+			<label>Gender</label>
+			<select name="Gender" id="gender">
+				<option value= "--" disabled selected></option>			
+				<option value="female">female</option>
+				<option value="male">male</option>	
+				<option value="other">other</option>
+			</select><br><span id="errGender"></span><br>
+			<span id="errRadio"></span><label>Choose Carefully</label>
+				<div>
+					<input type="radio" id="radio1" name="radio" value="daw"> <label>DAW</label>
+			    	<input type="radio" id="radio2" name="radio" value="life"> <label>Life</label>
+			    </div><hr>
+			<label>How will you pass the exams?</label><br><span id="errCheck"></span><br>
+				  <input type="checkbox" name="checkbox" id="cb1" value="study"> Study hard
+				  <input type="checkbox" name="checkbox" id="cb2" value="gift"> Send a ham 
+				  <input type="checkbox" name="checkbox" id="cb3" value="invoque"> Invoque a genius<br>
+		</fieldset>
+		<span id="errSubmit"></span><input type="submit" name="submit" value="submit" id="submit">
+	</form>
+<noscript>
+	<p>Su navegador tiene deshabilitado JavaScript. Actívalo para navegar correctamente por esta web</p>
+</noscript>	
+</body>
+<script src="./js/form.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="./js/regex.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="./js/transform.js" type="text/javascript" charset="utf-8" defer></script>
+</html>
