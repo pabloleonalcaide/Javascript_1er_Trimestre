@@ -1,21 +1,22 @@
 /**
  * this script allow to change the appearance of the form
  *
+ * @author Pablo Leon Alcaide
  */
 
- /** Alert of empty field*/
-	let paintVacio = function(element){
-		setVisibleMsj(element,"el campo no puede ir vacío");
-
-	}
-/** Clear the span text */
-	let paintNormal = function(element){
-		setVisibleMsj(element,"");
-	}
 /** 
  * Write a message
- * span -> the span where the message will appear
+ * span -> the tag where the message will appear
  */
 	let setVisibleMsj = function(span,msj){
 		span.innerHTML= msj;
+	}
+	//Transform the message to UpperCase
+	let setVisibleMsjUpper = function(span,msj){
+		span.innerHTML =msj.toUpperCase();
+	}
+	//Paint in red the message
+	let setVisibleMsjRed = function(span,msj){
+		span.style.color = "#ff0000";
+		span.innerHTML = msj;
 	}

@@ -1,45 +1,27 @@
 /**
  * Form script
  * @author Pablo Leon Alcaide
+ * @version 1.1
  */
 {
 	//Declarations
-	let spanName;
-	let spanDni;
-	let spanBirth;
-	let spanMail;
-	let spanAccount;
-	let spanWeb;
-	let spanGender;
-	let spanCheck;
-	let spanRadio;
-	let spanSubmit;
-	let inputName; 
-	let inputPhone;
-	let inputDni; 
-	let inputBirth;
-	let inputMail;
-	let inputAccount;
-	let inputWeb;
-	let inputGender;
-	let inputCheckBox1; 
-	let inputCheckBox2; 
-	let inputCheckBox3; 
-	let inputSubmit;
-	let rb1;
-	let rb2;
+	let spanName, spanDni, spanBirth, spanMail, spanAccount, spanWeb, spanGender, spanCheck, spanRadio, spanSubmit;
+	let inputName, inputPhone, inputDni, inputBirth, inputMail, inputAccount, inputWeb, inputGender;
+	let inputCheckBox1, inputCheckBox2, inputCheckBox3, inputSubmit, rb1, rb2;
 
 	/** When click on submit, check all the fields */
 	let validateForm = function(event){
-		if(!expresions.checkTheCheckBox(inputCheckBox1,inputCheckBox2,inputCheckBox3)){
-			setVisibleMsj(spanCheck,"elige al menos uno");
-		}else{
-			paintNormal(spanCheck);
-			}
+		try{
+			expresions.checkTheCheckBox(inputCheckBox1,inputCheckBox2,inputCheckBox3);
+			setVisibleMsj(spanCheck,"");
+		}catch(e){
+		setVisibleMsj(spanCheck,e.message);
+		}
+		
 		if(!rb2.checked && !rb1.checked){
 			setVisibleMsj(spanRadio,'selecciona un radio button');
 		}else{
-			paintNormal(spanRadio);
+			setVisibleMsj(spanRadio,"");
 		}
 		let idFirstError = locateFirstError();
 		if(idFirstError != null){
@@ -86,10 +68,10 @@
 	  try{
 	  	if(expresions.isEmpty(inputName)){			
 		}else {
-			paintNormal(spanName);
+			setVisibleMsj(spanName,"");
 		}
 	  }catch (e) {
-		  paintVacio(spanName);
+		  setVisibleMsj(spanName, e.message);
 	  	}  
 	};
 
@@ -99,13 +81,10 @@
   			if(expresions.isEmpty(inputPhone)){
 			}else{
 				if(expresions.checkPhone(inputPhone))
-					paintNormal(spanPhone);
-				else {
-					setVisibleMsj(spanPhone,"Introduce un teléfono válido");	
-				}		
+					setVisibleMsj(spanPhone,"");	
 			}
 		  } catch (e) {
-	  		paintVacio(spanPhone);
+	  		setVisibleMsj(spanPhone,e.message);
   		}
 	};
 
@@ -113,30 +92,24 @@
 	let validateMail = function(){	   
 	   try {
 	   	if(expresions.isEmpty(inputMail)){
-				}else{
-					if(expresions.checkMail(inputMail))
-						paintNormal(spanMail);
-					else {
-						setVisibleMsj(spanMail,"Introduce un email válido");	
-					}		
+			}else{
+				if(expresions.checkMail(inputMail))
+					setVisibleMsj(spanMail,"");		
 				}
    		} catch (e) {
-			paintVacio(spanMail);
+			setVisibleMsj(spanMail,e.message);
    		}
 	};
 	/** Validate the Account input */
 	let validateAccount = function(){   
 	   try {
-	   	if(isEmpty(inputAccount)){
+	   	if(expresions.isEmpty(inputAccount)){
 		}else{
 			if(expresions.checkAccount(inputAccount))
-				paintNormal(spanAccount);
-			else {
-				setVisibleMsj(spanAccount,"Introduce un número de cuenta válido");	
-				}		
-					}
+				setVisibleMsj(spanAccount,"");
+			}
 	   } catch (e) {
-			paintVacio(spanAccount);	   
+			setVisibleMsj(spanAccount,e.message);	   
 	   } 
 	};
 
@@ -146,13 +119,10 @@
 		   	if(expresions.isEmpty(inputDni)){
 				}else{
 					if(expresions.checkDni(inputDni))
-						paintNormal(spanDni);
-					else {
-						setVisibleMsj(spanDni,"Introduce un dni válido");	
-					}		
+						setVisibleMsj(spanDni,"");		
 				}
    		} catch (e) {
-					paintVacio(spanDni);
+					setVisibleMsj(spanDni,e.message);
    		}
 	};
 
@@ -162,13 +132,10 @@
 		  	if(expresions.isEmpty(inputBirth)){
 				}else{
 					if(expresions.checkBirth(inputBirth))
-						paintNormal(spanBirth);
-					else {
-						setVisibleMsj(spanBirth,"El formato de fecha no es válido");	
-					}		
+						setVisibleMsj(spanBirth,"");
 				}	
 	  } catch (e) {
-			paintVacio(spanBirth);
+			setVisibleMsj(spanBirth,e.message);
 	  }
 	};
 
@@ -178,26 +145,23 @@
 			if(expresions.isEmpty(inputWeb)){
 			}else{
 				if(expresions.checkWeb(inputWeb))
-					paintNormal(spanWeb);
-				else {
-					setVisibleMsj(spanWeb,"Introduce un formato válido de url");	
-				}		
+					setVisibleMsj(spanWeb,"");		
 			}
 		}catch(e){
-				paintVacio(spanWeb);
+				setVisibleMsj(spanWeb,e.message);
 		}		
 	};
 	/** Validate the Gender Select */
 	let validateGender = function(){		 
 		 try {
-	 		if(expresions.isEmpty(inputGender)){
-				}else {
-					paintNormal(spanGender);
+	 		if(expresions.checkGender(inputGender)){
+					setVisibleMsj(spanGender,"");
 				}
 		 }catch(e){
-				setVisibleMsj(spanGender,"elige uno");		 
+				setVisibleMsj(spanGender,e.message);		 
 		 }	 
 	};
+	//Declaring variables
 	let init = function(){
 	//Inputs
 		inputName = document.getElementById("name"); 
