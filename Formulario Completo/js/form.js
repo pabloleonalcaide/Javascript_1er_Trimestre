@@ -3,38 +3,35 @@
  * @author Pablo Leon Alcaide
  */
 {
-	//Inputs
-	let inputName = document.getElementById("name");
-	let inputPhone= document.getElementById("phone");
-	let inputDni = document.getElementById("dni");
-	let inputBirth = document.getElementById("birth");
-	let inputMail = document.getElementById("mail");
-	let inputAccount = document.getElementById("account");
-	let inputWeb = document.getElementById('web');
-	let inputGender = document.getElementById("gender");
-	let inputCheckBox1 = document.getElementById("cb1");
-	let inputCheckBox2 = document.getElementById("cb2");
-	let inputCheckBox3 = document.getElementById("cb3");
-	let inputSubmit = document.getElementById("submit");
-	let rb1 = document.getElementById('radio1');
-	let rb2 = document.getElementById('radio2');
-
-	//Span
-	let spanName = document.getElementById("errName");
-	let spanPhone = document.getElementById("errPhone");
-	let spanDni = document.getElementById("errDni");
-	let spanBirth = document.getElementById("errBirth");
-	let spanMail = document.getElementById("errMail");
-	let spanAccount = document.getElementById("errAccount");
-	let spanWeb = document.getElementById("errWeb");
-	let spanGender = document.getElementById("errGender");
-	let spanCheck = document.getElementById("errCheck");
-	let spanRadio = document.getElementById("errRadio");
-	let spanSubmit = document.getElementById("errSubmit");
+	//Declarations
+	let spanName;
+	let spanDni;
+	let spanBirth;
+	let spanMail;
+	let spanAccount;
+	let spanWeb;
+	let spanGender;
+	let spanCheck;
+	let spanRadio;
+	let spanSubmit;
+	let inputName; 
+	let inputPhone;
+	let inputDni; 
+	let inputBirth;
+	let inputMail;
+	let inputAccount;
+	let inputWeb;
+	let inputGender;
+	let inputCheckBox1; 
+	let inputCheckBox2; 
+	let inputCheckBox3; 
+	let inputSubmit;
+	let rb1;
+	let rb2;
 
 	/** When click on submit, check all the fields */
 	let validateForm = function(event){
-		if(!checkTheCheckBox(inputCheckBox1,inputCheckBox2,inputCheckBox3)){
+		if(!expresions.checkTheCheckBox(inputCheckBox1,inputCheckBox2,inputCheckBox3)){
 			setVisibleMsj(spanCheck,"elige al menos uno");
 		}else{
 			paintNormal(spanCheck);
@@ -51,10 +48,8 @@
 		}else{
 			document.write('<h1>Success!</h1>'+inputName.value+', Your form has been sent to your mail: '+inputMail.value);
 			document.close();
-		}
-		
-		
-	}
+		}	
+	};
 
 	/** Identify the first error in the form */
 	let locateFirstError = function(){
@@ -84,42 +79,42 @@
 		if(spanName.innerHTML != "")
 			first = "name";
 		return first;
-	}
+	};
+
 	/** Validate the Name input */
 	let validateName =function(){  
-	  try {
-	  	if(isEmpty(inputName)){			
+	  try{
+	  	if(expresions.isEmpty(inputName)){			
 		}else {
 			paintNormal(spanName);
 		}
-	  	} catch (e) {
+	  }catch (e) {
 		  paintVacio(spanName);
-	  	}
-	  
-	}
+	  	}  
+	};
 
 	/** Validate the Phone input */
-	let validatePhone = function(){
-		  
+	let validatePhone = function(){ 
   		try {
-  			if(isEmpty(inputPhone)){
+  			if(expresions.isEmpty(inputPhone)){
 			}else{
-				if(checkPhone(inputPhone))
+				if(expresions.checkPhone(inputPhone))
 					paintNormal(spanPhone);
 				else {
 					setVisibleMsj(spanPhone,"Introduce un teléfono válido");	
 				}		
 			}
 		  } catch (e) {
-	  	paintVacio(spanPhone);
+	  		paintVacio(spanPhone);
   		}
-	}
+	};
+
 	/** Validate the Mail input */
 	let validateMail = function(){	   
 	   try {
-	   	if(isEmpty(inputMail)){
+	   	if(expresions.isEmpty(inputMail)){
 				}else{
-					if(checkMail(inputMail))
+					if(expresions.checkMail(inputMail))
 						paintNormal(spanMail);
 					else {
 						setVisibleMsj(spanMail,"Introduce un email válido");	
@@ -127,15 +122,14 @@
 				}
    		} catch (e) {
 			paintVacio(spanMail);
-   }
-   
-		}
+   		}
+	};
 	/** Validate the Account input */
 	let validateAccount = function(){   
 	   try {
 	   	if(isEmpty(inputAccount)){
 		}else{
-			if(checkAccount(inputAccount))
+			if(expresions.checkAccount(inputAccount))
 				paintNormal(spanAccount);
 			else {
 				setVisibleMsj(spanAccount,"Introduce un número de cuenta válido");	
@@ -143,16 +137,15 @@
 					}
 	   } catch (e) {
 			paintVacio(spanAccount);	   
-	   }
-	   
-		}
+	   } 
+	};
+
 	/** Validate the DNI input*/	
-	let validateDni = function(){
-			   
+	let validateDni = function(){		   
 	   try {
-		   	if(isEmpty(inputDni)){
+		   	if(expresions.isEmpty(inputDni)){
 				}else{
-					if(checkDni(inputDni))
+					if(expresions.checkDni(inputDni))
 						paintNormal(spanDni);
 					else {
 						setVisibleMsj(spanDni,"Introduce un dni válido");	
@@ -161,16 +154,14 @@
    		} catch (e) {
 					paintVacio(spanDni);
    		}
-   
-	}
+	};
 
 	/** Validate the Birth input */
-	let validateBirth = function(){
-			  
+	let validateBirth = function(){		  
 		  try {
-		  	if(isEmpty(inputBirth)){
+		  	if(expresions.isEmpty(inputBirth)){
 				}else{
-					if(checkBirth(inputBirth))
+					if(expresions.checkBirth(inputBirth))
 						paintNormal(spanBirth);
 					else {
 						setVisibleMsj(spanBirth,"El formato de fecha no es válido");	
@@ -179,15 +170,14 @@
 	  } catch (e) {
 			paintVacio(spanBirth);
 	  }
-	  
-	}
+	};
 
 	/** Validate the URL input */
 	let validateUrl = function(){
 		try{
-			if(isEmpty(inputWeb)){
+			if(expresions.isEmpty(inputWeb)){
 			}else{
-				if(checkWeb(inputWeb))
+				if(expresions.checkWeb(inputWeb))
 					paintNormal(spanWeb);
 				else {
 					setVisibleMsj(spanWeb,"Introduce un formato válido de url");	
@@ -196,31 +186,57 @@
 		}catch(e){
 				paintVacio(spanWeb);
 		}		
-	}
+	};
 	/** Validate the Gender Select */
-	let validateGender = function(){
-			 
+	let validateGender = function(){		 
 		 try {
-	 		if(isEmpty(inputGender)){
+	 		if(expresions.isEmpty(inputGender)){
 				}else {
 					paintNormal(spanGender);
 				}
 		 }catch(e){
 				setVisibleMsj(spanGender,"elige uno");		 
-		 }
-		 
-	}
+		 }	 
+	};
+	let init = function(){
+	//Inputs
+		inputName = document.getElementById("name"); 
+		inputPhone= document.getElementById("phone");
+		inputDni = document.getElementById("dni");
+		inputBirth = document.getElementById("birth");
+		inputMail = document.getElementById("mail");
+		inputAccount = document.getElementById("account");
+		inputWeb = document.getElementById('web');
+		inputGender = document.getElementById("gender");
+		inputCheckBox1 = document.getElementById("cb1");
+		inputCheckBox2 = document.getElementById("cb2");
+		inputCheckBox3 = document.getElementById("cb3");
+		inputSubmit = document.getElementById("submit");
+		rb1 = document.getElementById('radio1');
+		rb2 = document.getElementById('radio2');
 
-
-	// Adding the event listeners 
-	inputName.addEventListener("blur",validateName);
-	inputPhone.addEventListener("blur",validatePhone);
-	inputMail.addEventListener("blur", validateMail);
-	inputAccount.addEventListener("blur",validateAccount);
-	inputDni.addEventListener("blur", validateDni);
-	inputBirth.addEventListener("blur",validateBirth);
-	inputWeb.addEventListener("blur",validateUrl);
-	inputGender.addEventListener("blur", validateGender);
-	inputSubmit.addEventListener("click",validateForm);
-
+		//Span
+		spanName = document.getElementById("errName");
+		spanPhone = document.getElementById("errPhone");
+		spanDni = document.getElementById("errDni");
+		spanBirth = document.getElementById("errBirth");
+		spanMail = document.getElementById("errMail");
+		spanAccount = document.getElementById("errAccount");
+		spanWeb = document.getElementById("errWeb");
+		spanGender = document.getElementById("errGender");
+		spanCheck = document.getElementById("errCheck");
+		spanRadio = document.getElementById("errRadio");
+		spanSubmit = document.getElementById("errSubmit");
+		// Adding the event listeners 
+		inputName.addEventListener("blur",validateName);
+		inputPhone.addEventListener("blur",validatePhone);
+		inputMail.addEventListener("blur", validateMail);
+		inputAccount.addEventListener("blur",validateAccount);
+		inputDni.addEventListener("blur", validateDni);
+		inputBirth.addEventListener("blur",validateBirth);
+		inputWeb.addEventListener("blur",validateUrl);
+		inputGender.addEventListener("blur", validateGender);
+		inputSubmit.addEventListener("click",validateForm);
+	};
+	window.onload = init;
 }

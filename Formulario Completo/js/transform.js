@@ -12,7 +12,10 @@
 	let paintNormal = function(element){
 		setVisibleMsj(element,"");
 	}
-/** Write an error message */
+/** 
+ * Write a message
+ * span -> the span where the message will appear
+ */
 	let setVisibleMsj = function(span,msj){
 		span.innerHTML= msj;
 	}
