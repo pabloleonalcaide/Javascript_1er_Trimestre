@@ -14,14 +14,16 @@
 		try{
 			expresions.checkTheCheckBox(inputCheckBox1,inputCheckBox2,inputCheckBox3);
 			setVisibleMsj(spanCheck,"");
-		}catch(e){
-		setVisibleMsj(spanCheck,e.message);
-		}
 		
-		if(!rb2.checked && !rb1.checked){
-			setVisibleMsj(spanRadio,'selecciona un radio button');
-		}else{
+		if(!rb2.checked && !rb1.checked)
+			throw new Error('check one radio');
+		else
 			setVisibleMsj(spanRadio,"");
+		}catch(e){
+				if(e.message == 'check one radio')
+					setVisibleMsj(spanRadio, e.message);
+				else
+					setVisibleMsj(spanCheck,e.message);
 		}
 		let idFirstError = locateFirstError();
 		if(idFirstError != null){
