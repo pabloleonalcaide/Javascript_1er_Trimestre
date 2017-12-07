@@ -13,14 +13,14 @@
 	let validateForm = function(event){
 		try{
 			expresions.checkTheCheckBox(inputCheckBox1,inputCheckBox2,inputCheckBox3);
-			setVisibleMsj(spanCheck,"");
+			setVisibleMsg(spanCheck,"");
 		}catch(e){
-			setVisibleMsj(spanCheck,e.message);
+			setVisibleMsg(spanCheck,e.message);
 		}try{
 			expresions.checkButton(rb1,rb2);	
-			setVisibleMsj(spanRadio,"");
+			setVisibleMsg(spanRadio,"");
 		}catch(e){
-			setVisibleMsj(spanRadio, e.message);
+			setVisibleMsg(spanRadio, e.message);
 		}
 	
 		let idFirstError = locateFirstError();
@@ -68,9 +68,9 @@
 	  try{
 	  	if(expresions.isEmpty(inputName)){			
 		}else
-			setVisibleMsj(spanName,"");
+			setVisibleMsg(spanName,"");
 	  }catch (e) {
-		  setVisibleMsj(spanName, e.message);
+		  setVisibleMsg(spanName, e.message);
 	  	}  
 	};
 
@@ -80,10 +80,10 @@
   			if(expresions.isEmpty(inputPhone)){
 			}else{
 				if(expresions.checkPhone(inputPhone))
-					setVisibleMsj(spanPhone,"");	
+					setVisibleMsg(spanPhone,"");	
 			}
 		  } catch (e) {
-	  		setVisibleMsj(spanPhone,e.message);
+	  		setVisibleMsg(spanPhone,e.message);
   		}
 	};
 
@@ -93,10 +93,10 @@
 	   	if(expresions.isEmpty(inputMail)){
 			}else{
 				if(expresions.checkMail(inputMail))
-					setVisibleMsj(spanMail,"");		
+					setVisibleMsg(spanMail,"");		
 				}
    		} catch (e) {
-			setVisibleMsj(spanMail,e.message);
+			setVisibleMsg(spanMail,e.message);
    		}
 	};
 	/** Validate the Account input */
@@ -105,10 +105,10 @@
 	   	if(expresions.isEmpty(inputAccount)){
 		}else{
 			if(expresions.checkAccount(inputAccount))
-				setVisibleMsj(spanAccount,"");
+				setVisibleMsg(spanAccount,"");
 			}
 	   } catch (e) {
-			setVisibleMsj(spanAccount,e.message);	   
+			setVisibleMsg(spanAccount,e.message);	   
 	   } 
 	};
 
@@ -118,10 +118,10 @@
 		   	if(expresions.isEmpty(inputDni)){
 				}else{
 					if(expresions.checkDni(inputDni))
-						setVisibleMsj(spanDni,"");		
+						setVisibleMsg(spanDni,"");		
 				}
    		} catch (e) {
-					setVisibleMsj(spanDni,e.message);
+					setVisibleMsg(spanDni,e.message);
    		}
 	};
 
@@ -131,10 +131,10 @@
 		  	if(expresions.isEmpty(inputBirth)){
 				}else{
 					if(expresions.checkBirth(inputBirth))
-						setVisibleMsj(spanBirth,"");
+						setVisibleMsg(spanBirth,"");
 				}	
 	  } catch (e) {
-			setVisibleMsj(spanBirth,e.message);
+			setVisibleMsg(spanBirth,e.message);
 	  }
 	};
 
@@ -144,20 +144,20 @@
 			if(expresions.isEmpty(inputWeb)){
 			}else{
 				if(expresions.checkWeb(inputWeb))
-					setVisibleMsj(spanWeb,"");		
+					setVisibleMsg(spanWeb,"");		
 			}
 		}catch(e){
-				setVisibleMsj(spanWeb,e.message);
+				setVisibleMsg(spanWeb,e.message);
 		}		
 	};
 	/** Validate the Gender Select */
 	let validateGender = function(){		 
 		 try {
 	 		if(expresions.checkGender(inputGender)){
-					setVisibleMsj(spanGender,"");
+					setVisibleMsg(spanGender,"");
 				}
 		 }catch(e){
-				setVisibleMsj(spanGender,e.message);		 
+				setVisibleMsg(spanGender,e.message);		 
 		 }	 
 	};
 	//Declaring variables

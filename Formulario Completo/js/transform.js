@@ -8,15 +8,15 @@
  * Write a message
  * span -> the tag where the message will appear
  */
-	let setVisibleMsj = function(span,msj){
+	let setVisibleMsg = function(span,msj){
 		span.innerHTML= msj;
 	}
 	//Transform the message to UpperCase
-	let setVisibleMsjUpper = function(span,msj){
+	let setVisibleMsgUpper = function(span,msj){
 		span.innerHTML =msj.toUpperCase();
 	}
 	//Paint in red the message
-	let setVisibleMsjRed = function(span,msj){
+	let setVisibleMsgRed = function(span,msj){
 		span.style.color = "#ff0000";
 		span.innerHTML = msj;
 	}
