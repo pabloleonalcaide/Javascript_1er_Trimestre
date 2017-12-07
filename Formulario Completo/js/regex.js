@@ -18,6 +18,7 @@ expresions = {
 	isEmpty : function(inputfield){
 		if(inputfield.value==null || inputfield.value=='')
 			throw new Error('This input is required');
+			//throw new Error('This input is required');
 		return false;
 	},
 	/** check the checkbox */
@@ -26,10 +27,15 @@ expresions = {
 			throw new Error("Checkbox not selected");
 		return true;
 	},
+	checkButton : function(rb1,rb2){
+		if(!rb2.checked && !rb1.checked)
+			throw new Error('check one radio');
+		return true;
+	},
 	/** Check if the mail has a correct format */
 	checkMail : function(inputMail){
 		if(!regexps.patternMail.test(inputMail.value))
-			throw new Error("invalid Mail format")
+			throw new Error("invalid Mail format");
 		return true;
 	},
 	

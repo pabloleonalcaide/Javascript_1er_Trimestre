@@ -14,17 +14,15 @@
 		try{
 			expresions.checkTheCheckBox(inputCheckBox1,inputCheckBox2,inputCheckBox3);
 			setVisibleMsj(spanCheck,"");
-		
-		if(!rb2.checked && !rb1.checked)
-			throw new Error('check one radio');
-		else
+		}catch(e){
+			setVisibleMsj(spanCheck,e.message);
+		}try{
+			expresions.checkButton(rb1,rb2);	
 			setVisibleMsj(spanRadio,"");
 		}catch(e){
-				if(e.message == 'check one radio')
-					setVisibleMsj(spanRadio, e.message);
-				else
-					setVisibleMsj(spanCheck,e.message);
+			setVisibleMsj(spanRadio, e.message);
 		}
+	
 		let idFirstError = locateFirstError();
 		if(idFirstError != null){
 			event.preventDefault();
@@ -69,9 +67,8 @@
 	let validateName =function(){  
 	  try{
 	  	if(expresions.isEmpty(inputName)){			
-		}else {
+		}else
 			setVisibleMsj(spanName,"");
-		}
 	  }catch (e) {
 		  setVisibleMsj(spanName, e.message);
 	  	}  
