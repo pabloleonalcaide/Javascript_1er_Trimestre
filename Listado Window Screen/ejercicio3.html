@@ -1,0 +1,49 @@
+<!-- Pablo León Alcaide - Ejercicio 3
+Crea una página web con el siguiente comportamiento:
+
+    Un botón "bajar línea" para bajar una línea.
+    Un botón "subir línea" para subir una línea
+    Un botón "bajar" para bajar una página.
+    Un botón "subir" para subir una página.
+    Un botón "inicio" para ir al inicio del documento
+    Un botón "fin" para ir al final del documento.
+    Puedes utilizar los siguientes métodos de windows: scroll(), scrollBy(), scrollByLines(), scrollTo()
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ejercicio 3 - Pablo León</title>
+	<style type="text/css" media="screen">
+		button{display:inline-block;}
+		#cajaBotones{text-align:right;position: fixed; top:0;right:0; width:250px;}
+	</style>
+	<script src="./js/ejercicio3.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+<body>
+	<div id="cajaBotones">
+		<button onclick="bajarLinea()">bajar línea</button>
+		<button onclick="subirLinea()">subir línea</button>
+		<button onclick="bajarPagina()">bajar pagina</button>
+		<button onclick="subirPagina()">subir pagina</button>
+		<button onclick="moverInicio()">subir inicio</button>
+		<button onclick="moverFinal()">bajar final</button>
+	</div>
+	<h1> Pablo León Alcaide - Ejercicio 3 </h1>
+		<p> Linea inicial </p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p><p>contenido</p>
+		<p> Linea final </p>
+	
+</body>
+</html>
