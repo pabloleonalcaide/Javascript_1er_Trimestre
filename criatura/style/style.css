@@ -1,0 +1,27 @@
+body{
+	background: url('../images/background.jpg');
+}
+
+#indexForm{
+	width: 30%;
+	margin:0 auto;
+	margin-top: 10em;
+
+}
+fieldset{
+	color:#f1f1f1;
+	background: rgba(0,0,0,0.6);
+}
+label, select{
+	display: block;
+}
+select{
+	color: #020202;
+}
+#errorMsg{
+	color: #ff0000;
+}
+#sandboxForm{
+	width: 50%;
+	margin: 0 auto;
+}

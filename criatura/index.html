@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Lets play!</title>
+	<link rel="stylesheet" href="./style/style.css">
+	<meta content="javascript, exercises, objects">
+	<meta author="Pablo Leon Alcaide">
+	<script src="./js/creature.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="./js/create.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+<body>
+	<form  id="indexForm" action="" method="">
+		<fieldset><legend>Choose your creature</legend>
+			<label>Name: </label><input type="text" id="name">
+			<label>Date: </label><input type="date" id="date">
+			<label>Color: </label><select id="color">
+				<option value="red">red</option>
+				<option value="black">black</option>
+				<option value="purple">purple</option>
+				<option value="green">green</option>
+				<option value="blue">blue</option>
+			</select>
+			<input type="submit" value="create!" id="submit">
+			<input type="reset" value="clear" id="reset">
+			<label id="errorMsg"></label>
+		</fieldset>
+	</form>
+</body>
+</html>
