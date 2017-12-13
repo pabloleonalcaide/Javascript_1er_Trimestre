@@ -9,32 +9,28 @@ var play = document.getElementById('play');
 var sleep =document.getElementById('sleep');
 var eat = document.getElementById('eat');
 // al cargar la ventana
-window.onload = function(){
-	actualizarEstado();
-}
+window.onload = refresh;
 
-let playCat = function(){
+let playCat = ()=>{
 	newCat.checkLive();
 	if(newCat.isAlive){	
 		newCat.play();
-		actualizarEstado();
-	}
-	else
+		refresh();
+	}else
 		killCat();
 }
 
-let sleepCat = function(){
+let sleepCat = ()=>{
 	newCat.sleep();
-	actualizarEstado();
+	refresh();
 }
 
-let eatCat = function(){
+let eatCat = ()=>{
 	newCat.checkLive();
 	if(newCat.isAlive){
 		newCat.eat();
-		actualizarEstado();
-	}
-	else
+		refresh();
+	}else
 		killCat();
 }
 
@@ -47,14 +43,12 @@ let checkImage = () => {
 		case 'sleeping' : 
 		default:  
 			image.setAttribute('src', './images/dormido.jpg');break;
-
 	}
-
 }
 
 
-/** Refresca el estado del gato */
-function actualizarEstado(){
+/** Refresh values*/
+function refresh(){
 	document.getElementById("name1").value=newCat.name;
 	document.getElementById("race1").value=newCat.race;
 	document.getElementById("weight1").value=newCat.weight;
