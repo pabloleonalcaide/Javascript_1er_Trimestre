@@ -20,7 +20,6 @@
 		errorMsg.innerHTML = "";
 	  } catch (e) {
 			 errorMsg.innerHTML = e.message;
-			 
 			 win.close();
 	  }
 	}

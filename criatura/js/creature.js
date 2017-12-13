@@ -29,17 +29,21 @@
 		return this.name;
 	}
 	Creature.prototype.setDate = function (newDate){
+		c = new Date();
+		n = new Date(newDate);
 		if(newDate == 'Invalid Date')
 			throw new Error("a Creature need a date");
-		this.date = newDate;
+		else if (n.getTime() > c.getTime())
+			throw new Error("a Creature doesn't travel in time");
+		this.date = n;
 	}
 	Creature.prototype.getDate = function(){
 		return this.date;
 	}
+
 	Creature.prototype.setEnergy = function(newEnergy){
-		if(newEnergy > 20 || newEnergy <1)
-			throw new Error ("value disallowed");
-		this.energy = newEnergy;
+		if(!this.isDead())	
+			this.energy = newEnergy;
 	}
 	Creature.prototype.getEnergy = function(){
 		return this.energy;
@@ -58,10 +62,14 @@
 		return this.dead;
 	}
 	Creature.prototype.checkLive = function(){
-		if(this.getEnergy()> Creature.MAXENERGY || this.getEnergy() < Creature.MINENERGY)
+		if(this.getEnergy()> this.MAXENERGY || this.getEnergy() < this.MINENERGY)
 			this.dead = true;
 	}
-
+	Creature.prototype.getTimeLife = function(){
+		let currentDate = new Date();
+		let millisec = currentDate.getTime() - this.getDate();
+		return Math.round(millisec / (24*60*60*1000));
+	}
 // State
 
 	Creature.prototype.toSleep = function(){
