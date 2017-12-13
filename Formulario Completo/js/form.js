@@ -34,7 +34,7 @@
 	};
 
 	/** Identify the first error in the form */
-	let locateFirstError = function(){
+	let locateFirstError = () =>{
 		let first = null;
 		validateGender();
 		if(spanGender.innerHTML !="")
@@ -62,9 +62,17 @@
 			first = "name";
 		return first;
 	};
+	let validateCheckBox = ()=>{
 
+	try {
+		if(expresions.checkTheCheckBox(inputCheckBox1,inputCheckBox2,inputCheckBox3))
+			setVisibleMsg(spanCheck,"")
+	} catch (e) {
+		setVisibleMsg(spanCheck,e.message);
+	}
+	}
 	/** Validate the Name input */
-	let validateName =function(){  
+	let validateName =() =>{  
 	  try{
 	  	if(expresions.isEmpty(inputName)){			
 		}else
@@ -75,7 +83,7 @@
 	};
 
 	/** Validate the Phone input */
-	let validatePhone = function(){ 
+	let validatePhone = () =>{ 
   		try {
   			if(expresions.isEmpty(inputPhone)){
 			}else{
@@ -88,7 +96,7 @@
 	};
 
 	/** Validate the Mail input */
-	let validateMail = function(){	   
+	let validateMail = () =>{	   
 	   try {
 	   	if(expresions.isEmpty(inputMail)){
 			}else{
@@ -100,7 +108,7 @@
    		}
 	};
 	/** Validate the Account input */
-	let validateAccount = function(){   
+	let validateAccount = () =>{   
 	   try {
 	   	if(expresions.isEmpty(inputAccount)){
 		}else{
@@ -113,7 +121,7 @@
 	};
 
 	/** Validate the DNI input*/	
-	let validateDni = function(){		   
+	let validateDni = () =>{		   
 	   try {
 		   	if(expresions.isEmpty(inputDni)){
 				}else{
@@ -121,12 +129,12 @@
 						setVisibleMsg(spanDni,"");		
 				}
    		} catch (e) {
-					setVisibleMsg(spanDni,e.message);
+			setVisibleMsg(spanDni,e.message);
    		}
 	};
 
 	/** Validate the Birth input */
-	let validateBirth = function(){		  
+	let validateBirth = () =>{		  
 		  try {
 		  	if(expresions.isEmpty(inputBirth)){
 				}else{
@@ -139,7 +147,7 @@
 	};
 
 	/** Validate the URL input */
-	let validateUrl = function(){
+	let validateUrl = () =>{
 		try{
 			if(expresions.isEmpty(inputWeb)){
 			}else{
@@ -151,7 +159,7 @@
 		}		
 	};
 	/** Validate the Gender Select */
-	let validateGender = function(){		 
+	let validateGender = () =>{		 
 		 try {
 	 		if(expresions.checkGender(inputGender)){
 					setVisibleMsg(spanGender,"");
@@ -161,7 +169,7 @@
 		 }	 
 	};
 	//Declaring variables
-	let init = function(){
+	let init = () =>{
 	//Inputs
 		inputName = document.getElementById("name"); 
 		inputPhone= document.getElementById("phone");
@@ -199,6 +207,7 @@
 		inputBirth.addEventListener("blur",validateBirth);
 		inputWeb.addEventListener("blur",validateUrl);
 		inputGender.addEventListener("blur", validateGender);
+		inputCheckBox3.addEventListener("blur",validateCheckBox);
 		inputSubmit.addEventListener("click",validateForm);
 	};
 	window.onload = init;
