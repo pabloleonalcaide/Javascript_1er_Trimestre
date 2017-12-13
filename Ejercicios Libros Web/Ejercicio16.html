@@ -1,0 +1,63 @@
+<!-- Pablo Leon Alcaide -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title> Pablo Leon - Ejercicio 16</title>
+ 
+<style type="text/css">
+  #info {width:200px; border:1px solid black;}
+</style>
+ 
+<script type="text/javascript">
+
+    /** Recoge la información del evento*/
+    function informacion(event) {
+      let evento = event || window.event;
+     
+      let coordX = evento.clientX;
+      let coordY = evento.clientY;
+     
+      let tamanoX = window.innerWidth;
+      let tamanoY = window.innerHeight;
+     
+      let posHorizontal = "";
+      let posVertical = "";
+
+      //si el punto está por encima de la mitad de la pantalla
+      if(coordX > tamanoX/2) {
+        posHorizontal = "derecha";
+      }
+      else {
+        posHorizontal = "izquierda";
+      }
+      //si el punto está por encima de la mitad de la pantalla
+      if(coordY > tamanoY/2) {
+        posVertical = "abajo";
+      }
+      else {
+        posVertical = "arriba";
+      }
+     
+      muestraInformacion(['Posicion click', posHorizontal, posVertical]);
+    }
+     
+     /** muestra la información recogida del evento */
+    function muestraInformacion(msj) {
+      document.getElementById("info").innerHTML = '<h1>'+msj[0]+'</h1>';
+      for(let i=1; i<msj.length; i++) {
+        document.getElementById("info").innerHTML += '<p>'+msj[i]+'</p>';
+      }
+    }
+     
+    document.onclick = informacion;
+     
+</script>
+</head>
+ 
+<body>
+ 
+<div id="info"></div>
+ 
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!--
+Pablo León Alcaide - 2º DAW
+A partir de la página web proporcionada, completar el código JavaScript para que:
+1.Cuando se pinche sobre el primer enlace, se oculte su sección relacionada
+2.Cuando se vuelva a pinchar sobre el mismo enlace, se muestre otra vez esa sección de
+contenidos
+3.Completar el resto de enlaces de la página para que su comportamiento sea idéntico al del
+primer enlace
+4.Cuando una sección se oculte, debe cambiar el mensaje del enlace asociado (pista:
+propiedad innerHTML)
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ejercicio 14 - Eventos</title>
+<style type="text/css">
+	.oculto { display: none; }
+	.visible { display: inline; }
+</style>
+</head>
+<body> 
+<p id="texto1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. <span id="adicional1" class="oculto">Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ul lamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan metus eu urna. Aenean vitae enim. Integer lacus. Vestibulum venenatis erat eu odio. Praesent id metus.</span></p>
+<a id="enlace1" href="#" onclick="muestraOculta(1); return false;">Seguir leyendo</a>
+
+<p id="texto2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. <span id="adicional2" class="oculto">Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ul lamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan metus eu urna. Aenean vitae enim. Integer lacus. Vestibulum venenatis erat eu odio. Praesent id metus.</span></p>
+<a id="enlace2" href="#" onclick="muestraOculta(2); return false;">Seguir leyendo</a>
+</body>
+<script type="text/javascript">
+
+	let muestraOculta = function(id) {
+	let parrafo = document.getElementById("adicional"+id); 	
+	let link = document.getElementById("enlace"+id);
+  	if (parrafo.className === "oculto"){
+  		parrafo.className = "visible";
+  		link.innerHTML = "ocultar";
+  	}else{
+  		parrafo.className = "oculto";
+  		link.innerHTML = "Seguir leyendo";
+  	}
+};
+</script>
+
+</html>

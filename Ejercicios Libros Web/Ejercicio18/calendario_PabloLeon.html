@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+<title>Ejercicio 18 - Pablo León</title>
+ 
+<style type="text/css">@import url("css/calendar-blue.css"); </style>
+ 
+<script type="text/javascript" src="js/calendar.js"></script>
+<script type="text/javascript" src="js/calendar-es.js"></script>
+<script type="text/javascript" src="js/calendar-setup.js"></script>
+<!-- <script type="text/javascript" src="js/script18.js"></script>  -->
+
+</head>
+ 
+<body>
+	<input type="text" name="date" id="fecha" readonly="readonly" />
+	<img src="img.gif" id="selector" />
+ 
+</body>
+<script type="text/javascript">
+window.onload = function() {
+  Calendar.setup({
+    inputField: "fecha",
+    ifFormat:   "%d / %m / %Y",
+    button:     "selector"
+  });
+}
+</script>
+</html>
