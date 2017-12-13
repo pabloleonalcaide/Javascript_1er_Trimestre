@@ -13,22 +13,24 @@
 	this.setName(iname);
 	this.setDate(idate);
 	this.setColor(icolor);
-	this.energy = 10;
-	this.state = 'active';
+	this.setEnergy(10);
+	this.setState('active');
 	this.dead = false;
+	this.linesOfCode = 0;
 	}
 	Creature.prototype.MAXENERGY = 20;
 	Creature.prototype.MINENERGY = 1;
 
-	Creature.prototype.setName = function (newName){
+	Creature.prototype.setName = (newName)=>{
 		if(newName.length == 0)
 			throw new Error("a Creature need a name");
 		this.name = newName;
 	}
-	Creature.prototype.getAlias = function(){
-		return this.name;
+	Creature.prototype.getAlias = ()=> this.name;
+	Creature.prototype.setState =(nstate) =>{
+		this.state= nstate;
 	}
-	Creature.prototype.setDate = function (newDate){
+	Creature.prototype.setDate = (newDate)=>{
 		c = new Date();
 		n = new Date(newDate);
 		if(newDate == 'Invalid Date')
@@ -37,10 +39,11 @@
 			throw new Error("a Creature doesn't travel in time");
 		this.date = n;
 	}
-	Creature.prototype.getDate = function(){
-		return this.date;
+	Creature.prototype.getDate = ()=> this.date;
+	
+	Creature.prototype.getLines = function(){
+		return this.linesOfCode;
 	}
-
 	Creature.prototype.setEnergy = function(newEnergy){
 		if(!this.isDead())	
 			this.energy = newEnergy;
@@ -48,15 +51,14 @@
 	Creature.prototype.getEnergy = function(){
 		return this.energy;
 	}
-	Creature.prototype.setColor = function(newColor){
+	
+	Creature.prototype.setColor = (newColor)=>{
 		this.color = newColor;
 	}
-	Creature.prototype.getColor = function(){
-		return this.color;
-	}
-	Creature.prototype.getState = function(){
-		return this.state;
-	}
+	Creature.prototype.getColor = ()=> this.color;
+	
+	Creature.prototype.getState = ()=> this.state;
+	
 	Creature.prototype.isDead = function(){
 		this.checkLive();
 		return this.dead;
@@ -71,16 +73,16 @@
 		return Math.round(millisec / (24*60*60*1000));
 	}
 // State
-
-	Creature.prototype.toSleep = function(){
+	Creature.prototype.toSleep = ()=>{
 		this.state = 'sleeping';
 	}
 	Creature.prototype.toCode = function(){
-		this.state = 'coding';
+		this.setState('coding');
+		this.linesOfCode++;
 		this.setEnergy(this.getEnergy()-1);
 	}
 	Creature.prototype.toCommit = function(){
-		this.state = 'commit';
+		this.setState('commit');
 		this.setEnergy(this.getEnergy()+1);
 	}
 

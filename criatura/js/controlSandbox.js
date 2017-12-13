@@ -9,10 +9,12 @@
 	let spanDays = document.getElementById("spanDays");
 	let spanState = document.getElementById("spanState");
 	let spanEnergy = document.getElementById("spanEnergy");
+	let spanLines = document.getElementById("spanLines");
 
 	let toCode = (event)=>{
 		event.preventDefault();
 		creature.toCode();
+		checkLines();
 		refresh();
 	}
 	let toCommit = (event)=>{
@@ -33,6 +35,9 @@
 	let checkLife = ()=>{
 		if(creature.isDead())
 			disableButtons();
+	}
+	let checkLines = () =>{
+		spanLines.innerHTML = "Great! you got "+creature.getLines() + "Lines of code!";
 	}
 	let disableButtons = ()=>{
 		code.disabled = true;
