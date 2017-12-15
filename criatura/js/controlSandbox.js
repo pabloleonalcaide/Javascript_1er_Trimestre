@@ -39,10 +39,20 @@
 	let checkLines = () =>{
 		spanLines.innerHTML = "Great! you got "+creature.getLines() + "Lines of code!";
 	}
+	/** disable action buttons */
 	let disableButtons = ()=>{
 		code.disabled = true;
 		sleep.disabled = true;
 		commit.disabled = true;
+		insertRIP();
+	}
+	/** Just add a final message */
+	let insertRIP = ()=>{
+		e = document.createElement('h2');
+		t = document.createTextNode("R.I.P");
+		e.appendChild(t);
+		e.style.textAlign = 'center';
+		fieldset.appendChild(e);
 	}
 	/** update the status */
 	let refresh = () =>{
@@ -62,10 +72,9 @@
 			case 'purple': fieldset.style.background = 'rgba(255,0,255,0.4)';break;
 			case 'green': fieldset.style.background = 'rgba(0,255,0,0.4)';break;
 		}
-
 	}
-	window.onload = loadStatus;
 
+	window.onload = loadStatus;
 
 	calculateDays.addEventListener("click",showDays);
 	code.addEventListener("click",toCode);

@@ -1,4 +1,5 @@
 /**
+ * Despliega múltiples ventanas al hacer click en un botón
  * @author Pablo Leon Alcaide
  * @version 1.0
  */
