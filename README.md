@@ -10,3 +10,4 @@
 * Calculadora con eventos = Repaso de objetos literales (gnerar calculadora)
 * Miniproyecto Lindo_Gatito = Repaso de objetos con prototype
 * Miniproyecto Criatura = Ejercicio para practicar lo trabajado durante el primer trimestre.
+* Examen Diciembre = Examen de la 1ª Evaluación (sin corregir)
