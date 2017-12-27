@@ -1,5 +1,5 @@
-### Corrección Examen Diciembre- Desarrollo Web en Entorno Cliente (Javascript) 
+### Corrección Examen Diciembre - Desarrollo Web en Entorno Cliente (Javascript) 
 
-## Exam correction (December) DWEC -> Javascript
+## Exam correction (December) DWEC --> Javascript
 
-En el pdf *InstruccionesDelExamen.pdf* se encuentran las indicaciones para la realización de la prueba, especificando lo requerido en cada una de las dos actividades.
+En el pdf *InstruccionesDelExamen.pdf*  se encuentran las indicaciones para la realización del examen. Se trata de dos actividades independientes a las que se accede a través del fichero *index.html* 
