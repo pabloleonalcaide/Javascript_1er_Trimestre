@@ -11,3 +11,4 @@
 * Miniproyecto Lindo_Gatito = Repaso de objetos con prototype
 * Miniproyecto Criatura = Ejercicio para practicar lo trabajado durante el primer trimestre.
 * Examen Diciembre = Examen de la 1ª Evaluación (sin corregir)
+* Examen Diciembre V2 = Reelaboración del examen de la 1ª evaluación (sin corregir)
