@@ -21,7 +21,9 @@
 			"<p id='paragraph1'></p><p id='paragraph2'></p><p id='paragraph3'></p>"+
 			"<button id='close'>Cerrar</button>";
 		let dateWindow = window.open('','','width=600px height=400px');
+		dateWindow.document.open();
 		dateWindow.document.write(contenido);
+		dateWindow.document.close();
 	});
 
 	/**
