@@ -23,8 +23,7 @@ const submit = document.getElementById("create");
  * @return     boolean 
  */
 isEmptyInput = (input,span) =>{
-	input.value.length === 0 ? span.innerHTML = "Campo obligatorio" : checkDatePattern();
-	return span.innerHTML !== "";
+	input.value.length === 0 ? span.innerHTML = "Campo obligatorio" : span.innerHTML ="";
 }
 /**
  * Alert if the user Date has valid format or not
@@ -33,6 +32,7 @@ isEmptyInput = (input,span) =>{
 checkDatePattern = ()=>{
 	const datePattern = /^\d{2}-\d{2}-\d{4}$/ ;
 	datePattern.test(birth.value) ? checkValidDate() : errBirth.innerHTML = "Formato de Fecha Inválido" ;
+	
 }
 /**
  * Alert if the user Date is really a Date
@@ -44,8 +44,51 @@ checkValidDate =() =>{
 	date  == "Invalid Date" ? errBirth.innerHTML = "Fecha Inválida" : errBirth.innerHTML ="";
 	return errBirth.innerHTML === "";
 }
-
+/**
+ * Check if all the form inputs are valids
+ */
+checkAll = (event) =>{
+	event.preventDefault();
+	isEmptyInput(name,errName);
+	let eName = (errName.innerHTML == "");
+	isEmptyInput(subname1,errSubname1);
+	let eSubname1 = (errSubname1.innerHTML == "");
+	isEmptyInput(subname2,errSubname2);
+	let eSubname2 = (errSubname2.innerHTML == "");
+	isEmptyInput(birth,errBirth);
+	let eBirth = (errBirth.innerHTML == "");
+	(eName && eSubname2 && eSubname1 && eBirth) ? createUser() : name.focus();
+}
+/**
+ * Creates an user to the new window.
+ */
+createUser = ()=>{
+	try{
+		fecha = birth.value.replace(/-/g,'/');
+		usuarioFecha = new Date(fecha);
+		user = new Alumno(name.value,subname1.value,subname2.value,usuarioFecha);
+		mostrar(user);	
+	}catch(e){
+		errBirth.innerHTML = e.message;
+	}
+}
+/**
+ * Open a new window and shows the user inside
+ */
+mostrar = (user)=>{
+	try{
+		card = window.open('','','width=300px, height=200px');
+		card.cardUser = user;
+		card.document.open();
+		card.document.write(user.mostrar());
+		card.document.close();
+	}catch(e){
+		errBirth.innerHTML = e.message;
+		card.close();
+	}
+}
 name.addEventListener("blur", isEmptyInput.bind(null,name,errName),false);
 subname1.addEventListener("blur", isEmptyInput.bind(null,subname1,errSubname1),false);
 subname2.addEventListener("blur", isEmptyInput.bind(null,subname2,errSubname2),false);
 birth.addEventListener("blur", isEmptyInput.bind(null,birth,errBirth),false);
+submit.addEventListener("click",checkAll);
